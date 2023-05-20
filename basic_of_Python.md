@@ -1,7 +1,9 @@
 # Pythonの基礎(basic of Python)
 
 
-##　　変数宣言（Variable declaration）
+##　変数宣言（Variable declaration）
+
+
 **変数宣言**は、変数名に値を代入することで行う。
 `変数名 = 値`で宣言し、型は自動的に判別されため、型宣言は不要である。
 変数名は、数字から始まることはできない。また、予約語（if, for, while, def, class, など）は変数名に使うことができない。
