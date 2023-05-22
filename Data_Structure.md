@@ -262,10 +262,76 @@ print(sys.getsizeof(tuple)) # 72
 ```
 
 
-
-
 ## 辞書型（Dictionary）
+`辞書型`は、キーと値のペアを複数格納するためのデータ型です。
+辞書型は、`{}`（波括弧）で囲んだ中に、キーと値のペアを`:`（コロン）で区切って記述します。
+```python
+dict = {"key1": "value1", "key2": "value2"}
+print(dict) # {'key1': 'value1', 'key2': 'value2'}
+```
 
+### 辞書型のメソッド
+辞書型には、辞書の要素を操作するためのメソッドが用意されています。
+辞書のメソッドは、`辞書名.メソッド名()`のように記述します。
+`辞書名.keys()`は、辞書のキーを取得する。
+```python
+dict = {"key1": "value1", "key2": "value2"}
+print(dict.keys()) # dict_keys(['key1', 'key2'])
+```
+`辞書名.values()`は、辞書の値を取得する。
+```python
+dict = {"key1": "value1", "key2": "value2"}
+print(dict.values()) # dict_values(['value1', 'value2'])
+```
+`辞書名.update()`は、辞書の要素を更新する。
+```python
+dict = {"key1": "value1", "key2": "value2"}
+dict.update({"key1": "value3"})
+print(dict) # {'key1': 'value3', 'key2': 'value2'}
+```
+`辞書名.get()`は、辞書の要素を取得する。
+```python
+dict = {"key1": "value1", "key2": "value2"}
+print(dict.get("key1")) # value1
+```
+`辞書名.pop()`は、辞書の要素を削除する。
+```python
+dict = {"key1": "value1", "key2": "value2"}
+dict.pop("key1")
+print(dict) # {'key2': 'value2'}
+```
+`辞書名.clear()`は、辞書の要素を全て削除する。
+```python
+dict = {"key1": "value1", "key2": "value2"}
+dict.clear()
+print(dict) # {}
+```
+
+### 辞書のコピー
+辞書型の変数を別の変数に代入すると、同じ辞書が参照される。
+```python
+dict_a = {"key1": "value1", "key2": "value2"}
+dict_b = dict_a
+dict_b["key1"] = "value3"
+print(dict_a) # {'key1': 'value3', 'key2': 'value2'}
+print(dict_b) # {'key1': 'value3', 'key2': 'value2'}
+```
+`copy`メソッドを使うことで、辞書のコピーを作成することができる。
+```python
+dict_a = {"key1": "value1", "key2": "value2"}
+dict_b = dict_a.copy()
+dict_b["key1"] = "value3"
+print(dict_a) # {'key1': 'value1', 'key2': 'value2'}
+print(dict_b) # {'key1': 'value3', 'key2': 'value2'}
+```
+list型と同様に、辞書型も値が参照渡しになるため、copyメソッドを使うことで、辞書のコピーを作成することができます。
+
+### 辞書の使い所
+オブジェクトのプロパティを表現する場合に使用する。つまりは、Keyを使用してValueを取得する場合に使用する。
+```python
+dict_fruits = {"apple": 100, "banana": 200, "orange": 300}
+```
+また、辞書型ではハッシュテーブルというデータ構造を使用しているため、検索処理が高速に行うことができます。
 
 
 ## 集合型（Set）
