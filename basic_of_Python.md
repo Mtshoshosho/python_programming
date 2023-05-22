@@ -1,7 +1,7 @@
 # Pythonの基礎(basic of Python)
+Pythonの基礎を学ぶ。
 
-
-##　変数宣言（Variable declaration）
+## 変数宣言（Variable declaration）
 
 
 **変数宣言**は、変数名に値を代入することで行う。

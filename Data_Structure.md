@@ -1,0 +1,196 @@
+# データ構造（Data Structure）
+
+## リスト型（List）
+`リスト型`とは、複数のデータをまとめて扱うためのデータ型です。
+リスト型は、`[]`（角括弧）で囲んだ中に、複数のデータをカンマ区切りで並べて記述します。
+```python
+list = [1, 2, 3]
+print(list) # [1, 2, 3]
+```
+リスト型の要素には、数値や文字列など、どんなデータ型でも格納することができます。
+```python
+list = [1, "Hello", 3]
+print(list) # [1, 'Hello', 3]
+```
+リスト型の要素には、リスト型を格納することもできます。
+```python
+list = [1, [2, 3], 4]
+print(list) # [1, [2, 3], 4]
+```
+リスト型の要素には、変数を格納することもできます。
+```python
+num = 1
+list = [num, 2, 3]
+print(list) # [1, 2, 3]
+```
+
+リストの要素の結合は、`+`を使う。
+```python
+list_a = [1,2,3,4,5]
+list_b = [6,7,8,9,10]
+list_c = list_a + list_b
+print(list_c) # [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+```
+`extend`メソッドを使うことで、リストの要素を結合することができる。
+```python
+list_a = [1,2,3,4,5]
+list_b = [6,7,8,9,10]
+list_a.extend(list_b)
+print(list_a) # [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+```
+
+### リストのメソッド
+リスト型には、リストの要素を操作するためのメソッドが用意されています。
+リストのメソッドは、`リスト名.メソッド名()`のように記述します。
+
+`index`メソッドは、リストの要素のインデックスを取得する。
+```python
+list = [1, 2, 3]
+print(list.index(2)) # 1
+```
+
+`count`メソッドは、リストの要素の数を取得する。
+```python
+list = [1, 2, 3, 2]
+print(list.count(2)) # 2
+```
+
+`append`メソッドは、リストの末尾に要素を追加する。
+```python
+list = [1, 2, 3]
+list.append(4)
+print(list) # [1, 2, 3, 4]
+```
+
+`insert`メソッドは、リストの指定した位置に要素を追加する。
+```python
+list = [1, 2, 3]
+list.insert(1, 4)
+print(list) # [1, 4, 2, 3]
+```
+
+`sort`メソッドは、リストの要素を昇順に並び替える。
+```python
+list = [3, 2, 1]
+list.sort()
+print(list) # [1, 2, 3]
+```
+
+`reverse`メソッドは、リストの要素を逆順に並び替える。
+```python
+list = [1, 2, 3]
+list.reverse()
+print(list) # [3, 2, 1]
+```
+
+`split`メソッドは、リストの要素を指定した文字列で分割して、リストに格納する。
+```python
+str = "Hello World"
+list = str.split(" ")
+print(list) # ['Hello', 'World']
+```
+
+`join`メソッドは、リストの要素を指定した文字列で結合する。
+```python
+list = ['Hello', 'World']
+str = " ".join(list)
+print(str) # Hello World
+```
+
+
+### リストのコピー
+リスト型の変数を別の変数に代入すると、同じリストが参照される。
+```python
+list_a = [1, 2, 3]
+list_b = list_a
+list_b[0] = 4
+print(list_a) # [4, 2, 3]
+print(list_b) # [4, 2, 3]
+```
+
+`copy`メソッドを使うことで、リストのコピーを作成することができる。
+```python
+list_a = [1, 2, 3]
+list_b = list_a.copy()
+list_b[0] = 4
+print(list_a) # [1, 2, 3]
+print(list_b) # [4, 2, 3]
+```
+
+値渡しと参照渡しの違い
+変数や関数の引数に値を渡す方法には、**値渡し**と**参照渡し**の2種類があります。
+値渡しは、値のコピーを渡す方法で、参照渡しは、値の参照を渡す方法です。
+変数に値を代入すると、値渡しによって値のコピーが作成されます。
+```python
+num_a = 1
+num_b = num_a
+num_b = 2
+print(num_a) # 1
+print(num_b) # 2
+```
+リスト型の変数を別の変数に代入すると、参照渡しによって同じリストが参照されます。
+そのため、上記のlist_aとlist_bの例のように、list_bの要素を変更すると、list_aの要素も変更されます。
+そこで、リストのコピーを作成するには、copyメソッドを使うことで、値渡しによってリストのコピーを作成することができます。
+`id`関数は、変数の参照を取得する。
+```python
+list_a = [1, 2, 3]
+list_b = list_a
+list_c = list_a.copy()
+print(id(list_a)) # 140539547316864
+print(id(list_b)) # 140539547316864
+print(id(list_c)) # 140539547316992
+```
+list_aとlist_bは、同じ参照を持っているので、id関数で取得した参照は同じになります。
+list_aとlist_cは、異なる参照を持っているので、id関数で取得した参照は異なります。
+よって値渡しによってリストのコピーを作成するには、copyメソッドを使うことで、リストのコピーを作成することができます。
+
+### リストの使い所
+リスト型は、複数のデータをまとめて扱うためのデータ型です。
+```python
+seats = []
+min = 0
+max = 5
+```
+上記のように、リスト型の変数を使うことで、複数のデータをまとめて扱うことができます。
+```python
+seats = []
+min = 0
+max = 5
+```
+シートの長さ
+```python
+min <= len(seats) < max
+```
+シートの長さが、min以上、max未満の場合にTrueを返す。
+```python
+seats.append("p")
+min <= len(seats) < max # True
+```
+シートに5人を追加する。
+```python
+seats.append("p")
+seats.append("p")
+seats.append("p")
+seats.append("p")
+min <= len(seats) < max # False
+```
+シートから一人を削除する。
+```python
+seats.pop()
+min <= len(seats) < max # True
+```
+
+
+## タプル型（Tuple）
+
+
+
+
+## 辞書型（Dictionary）
+
+
+
+## 集合型（Set）
+
+
+
